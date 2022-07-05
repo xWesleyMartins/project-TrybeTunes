@@ -14,10 +14,10 @@ export default class Content extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={ Login } />
-          <Route path="/Search" component={ Search } />
-          <Route path="/Album/:id" component={ Album } />
-          <Route path="/Profile" component={ Profile } />
           <Route path="/Profile/edit" component={ ProfileEdit } />
+          <Route path="/Profile" component={ Profile } />
+          <Route path="/Album/:id" component={ Album } />
+          <Route path="/Search" component={ Search } />
           <Route path="/Favorites" component={ Favorites } />
           <Route path="*" component={ notFound } />
         </Switch>
