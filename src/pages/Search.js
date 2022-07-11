@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
+import Header from '../components/Header';
 
 export default class Search extends Component {
 state = {
@@ -56,6 +57,7 @@ render() {
     searchAlbum } = this.state;
   return (
     <div data-testid="page-search">
+      <Header />
       Search
       { loading && <Loading /> }
       <input

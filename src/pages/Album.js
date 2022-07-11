@@ -32,10 +32,10 @@ export default class Album extends Component {
         Album
         <Header />
         <div>
-          <ul>
-            <li data-testid="artist-name">{ nameArtist }</li>
-            <li data-testid="album-name">{ albumMusicId }</li>
-          </ul>
+
+          <h4 data-testid="artist-name">{ nameArtist }</h4>
+          <h5 data-testid="album-name">{ albumMusicId }</h5>
+
           { albumsArtists.filter((music) => Object.keys(music).includes('kind')).map(({
             artistId,
             previewUrl,
