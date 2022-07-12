@@ -41,6 +41,7 @@ export default class Album extends Component {
 
           { musicas.map(({
             // artistId,
+            trackId,
             previewUrl,
             trackName,
           }, index) => (
@@ -49,6 +50,7 @@ export default class Album extends Component {
                 previewUrl={ previewUrl }
                 trackName={ trackName }
                 // key={ music.trackId }
+                trackId={ trackId }
               />
             </div>
           ))}
@@ -60,4 +62,6 @@ export default class Album extends Component {
   }
 }
 
-Album.propTypes = { match: propTypes.object }.isRequired;
+Album.propTypes = {
+  match: propTypes.object,
+}.isRequired;
