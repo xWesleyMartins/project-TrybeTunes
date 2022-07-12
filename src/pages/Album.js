@@ -7,6 +7,7 @@ import MusicCard from '../components/MusicCard';
 export default class Album extends Component {
   state = {
     albumsArtists: [],
+    musicas: [],
     nameArtist: '',
     albumMusicId: '',
   }
@@ -22,11 +23,13 @@ export default class Album extends Component {
     this.setState({
       nameArtist: albumsArtists[0].artistName,
       albumMusicId: albumsArtists[0].collectionName,
+      musicas: albumsArtists.slice(1),
     });
   };
 
   render() {
-    const { nameArtist, albumMusicId, albumsArtists } = this.state;
+    const { nameArtist, albumMusicId, albumsArtists, musicas } = this.state;
+    console.log(albumsArtists);
     return (
       <div data-testid="page-album">
         Album
@@ -36,13 +39,17 @@ export default class Album extends Component {
           <h4 data-testid="artist-name">{ nameArtist }</h4>
           <h5 data-testid="album-name">{ albumMusicId }</h5>
 
-          { albumsArtists.filter((music) => Object.keys(music).includes('kind')).map(({
-            artistId,
+          { musicas.map(({
+            // artistId,
             previewUrl,
             trackName,
-          }) => (
-            <div key={ artistId }>
-              <MusicCard previewUrl={ previewUrl } trackName={ trackName } />
+          }, index) => (
+            <div key={ index }>
+              <MusicCard
+                previewUrl={ previewUrl }
+                trackName={ trackName }
+                // key={ music.trackId }
+              />
             </div>
           ))}
 
