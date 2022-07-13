@@ -39,18 +39,14 @@ export default class Album extends Component {
           <h4 data-testid="artist-name">{ nameArtist }</h4>
           <h5 data-testid="album-name">{ albumMusicId }</h5>
 
-          { musicas.map(({
-            // artistId,
-            trackId,
-            previewUrl,
-            trackName,
-          }, index) => (
+          { musicas.map((music, index) => (
             <div key={ index }>
               <MusicCard
-                previewUrl={ previewUrl }
-                trackName={ trackName }
+                music={ music }
+                previewUrl={ music.previewUrl }
+                trackName={ music.trackName }
                 // key={ music.trackId }
-                trackId={ trackId }
+                trackId={ music.trackId }
               />
             </div>
           ))}
