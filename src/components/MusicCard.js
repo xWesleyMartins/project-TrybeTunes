@@ -40,22 +40,33 @@ export default class MusicCard extends Component {
       loading: true,
     }, async () => {
       await addSong(music);
+      console.log(music);
       this.setState({
         loading: false,
       });
     });
   }
 
+  // handleChecked = ({ target }) => {
+  //   if (target.value) {
+  //     this.setState(
+  //       { check: false, loading: true },
+  //       this.toRemoveMusicfav,
+  //     );
+  //   }
+  // }
+
   render() {
-    const { trackName, previewUrl, trackId } = this.props;
+    const { music } = this.props;
     const { check, loading } = this.state;
     return (
       <div>
         MusicCard
         { loading && <Loading /> }
+        {/* { check && ( */}
         <div>
-          <span>{ trackName }</span>
-          <audio data-testid="audio-component" src={ previewUrl } controls>
+          <span>{ music.trackName }</span>
+          <audio data-testid="audio-component" src={ music.previewUrl } controls>
             <track kind="captions" />
             O seu navegador não suporta o elemento
             {' '}
@@ -63,14 +74,14 @@ export default class MusicCard extends Component {
             <code>audio</code>
           </audio>
           <label
-            htmlFor={ trackId }
+            htmlFor={ music.trackId }
           >
             Favorita
             <input
-              data-testid={ `checkbox-music-${trackId}` }
+              data-testid={ `checkbox-music-${music.trackId}` }
               type="checkbox"
               name="check"
-              id={ trackId }
+              id={ music.trackId }
               checked={ check }
               onChange={ this.handleCheckFavorit }
               // onClick={ this.getFavMusics }
@@ -79,6 +90,7 @@ export default class MusicCard extends Component {
           </label>
 
         </div>
+        {/* )} */}
       </div>
     );
   }
