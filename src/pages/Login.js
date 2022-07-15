@@ -10,8 +10,7 @@ state = {
   login: '',
   changeOfButton: true,
   loading: false,
-  xablau: false,
-  // logado: false,
+  logado: false,
 };
 
     handleChange = ({ target }) => {
@@ -42,11 +41,11 @@ state = {
         { loading: true },
       );
       await createUser({ name: login });
-      this.setState({ xablau: true });
+      this.setState({ logado: true });
     }
 
     render() {
-      const { login, changeOfButton, loading, xablau } = this.state;
+      const { login, changeOfButton, loading, logado } = this.state;
       // const showLoading = <span>Carregando...</span>;
       return (
         <div data-testid="page-login">
@@ -72,7 +71,7 @@ state = {
             </button>
             <div>
               { loading ? <Loading /> : null }
-              { xablau ? <Redirect to="/search" /> : null }
+              { logado ? <Redirect to="/search" /> : null }
             </div>
           </label>
         </div>
