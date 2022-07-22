@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Loading from './Loading';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import MusicCard from '../components/MusicCard';
+import FavoriteCard from '../components/favoriteCard';
 
 export default class Favorites extends Component {
   state = {
@@ -29,8 +29,9 @@ export default class Favorites extends Component {
         <Header />
         Favorites
         { loading && <Loading /> }
+
         {favoriteList.map((music, favListArr) => (
-          <MusicCard
+          <FavoriteCard
             music={ music }
             key={ favListArr }
             previewUrl={ music.previewUrl }

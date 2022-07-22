@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from '../pages/Loading';
 
-export default class MusicCard extends Component {
+export default class FavoriteCard extends Component {
   state = {
     loading: false,
     check: false,
@@ -71,40 +71,41 @@ export default class MusicCard extends Component {
       <div>
         MusicCard
         { loading && <Loading /> }
-        {/* { check && ( */}
-        <div>
-          <span>{ music.trackName }</span>
-          <audio data-testid="audio-component" src={ music.previewUrl } controls>
-            <track kind="captions" />
-            O seu navegador não suporta o elemento
-            {' '}
+        { check && (
 
-            <code>audio</code>
-          </audio>
-          <label
-            htmlFor={ music.trackId }
-          >
-            Favorita
-            <input
-              data-testid={ `checkbox-music-${music.trackId}` }
-              type="checkbox"
-              name="check"
-              id={ music.trackId }
-              checked={ check }
-              onChange={ this.updateFavList }
-              // onClick={ this.getFavMusics }
+          <div>
+            <span>{ music.trackName }</span>
+            <audio data-testid="audio-component" src={ music.previewUrl } controls>
+              <track kind="captions" />
+              O seu navegador não suporta o elemento
+              {' '}
 
-            />
-          </label>
+              <code>audio</code>
+            </audio>
+            <label
+              htmlFor={ music.trackId }
+            >
+              Favorita
+              <input
+                data-testid={ `checkbox-music-${music.trackId}` }
+                type="checkbox"
+                name="check"
+                id={ music.trackId }
+                checked={ check }
+                onChange={ this.updateFavList }
+                // onClick={ this.getFavMusics }
 
-        </div>
-        {/* )} */}
+              />
+            </label>
+
+          </div>
+        )}
       </div>
     );
   }
 }
 
-MusicCard.propTypes = {
+FavoriteCard.propTypes = {
   trackName: PropTypes.string,
   previewUrl: PropTypes.string,
   music: PropTypes.objectOf(PropTypes.object),
