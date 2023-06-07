@@ -12,8 +12,13 @@ code {
     monospace;
 }
 
-.loading {
+.LoginPage {
+  background-color: rgb(100, 174, 235);
+  
   align-items: center;
   display: flex;
   justify-content: center;
+
+
 }
+

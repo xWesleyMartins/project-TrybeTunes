@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
+// import './';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
 // import Loading from '../pages/Loading';
+
+const loginImG = 'https://www.seekpng.com/png/full/138-1387775_login-to-do-whatever-you-want-login-icon.png';
 
 export default class Login extends Component {
 state = {
@@ -36,10 +39,7 @@ state = {
 
     clickEventButton = async () => {
       const { login } = this.state;
-
-      this.setState(
-        { loading: true },
-      );
+      this.setState({ loading: true });
       await createUser({ name: login });
       this.setState({ logado: true });
     }
@@ -48,7 +48,11 @@ state = {
       const { login, changeOfButton, loading, logado } = this.state;
       // const showLoading = <span>Carregando...</span>;
       return (
-        <div data-testid="page-login">
+        <div
+          className="LoginPage"
+          data-testid="page-login"
+        >
+          <img src={ loginImG } alt="" />
           Login
           <label htmlFor="login-name-input">
             <input
